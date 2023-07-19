@@ -7,6 +7,10 @@ import rainySVG from './images/weather/rainyCloud.svg'
 import clearSVG from './images/weather/clearNight.svg'
 import pCloudyNightSVG from './images/weather/partly_cloudy_night.svg'
 import foggySVG from './images/weather/foggy.svg'
+import therm from './images/thermostat.svg'
+import humid from './images/humidity.svg'
+import rainy from './images/rainy.svg'
+import air from './images/air.svg'
 
 
 let key = "879b15820c1f4c41884224003230507" 
@@ -18,6 +22,16 @@ const currTemp_c = document.querySelector('#temp-c')
 const currCondition = document.querySelector('#condition')
 const currIcon = document.querySelector('#current-icon')
 const location = document.querySelector('#location')
+//Advanced Weather Variables
+const thermIcon = document.querySelector('#therm')
+thermIcon.src = therm
+const humidIcon = document.querySelector('#humid')
+humidIcon.src = humid
+const rainyIcon = document.querySelector('#rainy')
+rainyIcon.src = rainy
+const airIcon = document.querySelector('#air')
+airIcon.src = air
+
 const feelslike_c = document.querySelector('#feels-temp-c')
 const humidity = document.querySelector('#humidity')
 const chance_rain = document.querySelector('#chance-rain')

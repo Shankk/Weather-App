@@ -102,8 +102,9 @@ body {
     height: auto;
 }
 
-#adv-icon {
-    max-width: 100%;
+.adv-icon {
+    width: 80px;
+    min-width: 50px;
     height: auto;
 }
 
