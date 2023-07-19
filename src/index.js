@@ -156,14 +156,14 @@ function assignCurrentAdvanced(feels,humid,rain,wind) {
 }
 
 function grabCurrentWeatherAPI() {
-    let currentWeather = 'https://api.weatherapi.com/v1/forecast.json?key=' + key + '&q=' + inputValue.value + "&days=7&aqi=no&alerts=no"
+    let currentWeather = 'https://api.weatherapi.com/v1/forecast.json?key=' + key + '&q=' + inputValue.value + "&days=3&aqi=no&alerts=no"
     //console.log(currentWeather)
     fetch(currentWeather,{mode: 'cors'})
         .then(function(response){
             return response.json();
         })
         .then(function(response){
-            //console.log(response)
+            console.log(response)
             let temp_c = response.current.temp_c
             let cond = response.current.condition.text
             let name = response.location.name
@@ -173,9 +173,7 @@ function grabCurrentWeatherAPI() {
             let humidity = response.current.humidity
             let rain = response.forecast.forecastday[0].day.daily_chance_of_rain
             let wind = response.current.wind_kph
-            //console.log(getLocalTime(response.location.localtime))
             assignCurrentBasic(getDayOfWeek(StringToDate(response.forecast.forecastday[0].date)), getTime(response.location.localtime), temp_c,cond,name,region,country)
-            
             assignCurrentAdvanced(feels,humidity,rain,wind)
             assignDailyWeather(response.forecast.forecastday)
         })

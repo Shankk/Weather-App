@@ -98,7 +98,8 @@ body {
 }
 
 #daily-icon , #hourly-icon{
-    width: 50%;
+    max-width: 30%;
+    width: 100%;
     height: auto;
 }
 
