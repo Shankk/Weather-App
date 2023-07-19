@@ -1,5 +1,13 @@
 import { getDay } from 'date-fns';
 import './styles.css';
+import sunnySVG from './images/weather/sunny.svg'
+import pCloudyDaySVG from './images/weather/partly_cloudy_day.svg'
+import cloudySVG from './images/weather/cloudy.svg'
+import rainySVG from './images/weather/rainyCloud.svg'
+import clearSVG from './images/weather/clearNight.svg'
+import pCloudyNightSVG from './images/weather/partly_cloudy_night.svg'
+import foggySVG from './images/weather/foggy.svg'
+
 
 let key = "879b15820c1f4c41884224003230507" 
 const inputValue = document.querySelector('#locationSearch')
@@ -17,10 +25,10 @@ const wind_speed = document.querySelector('#wind-speed')
 //Daily Weather Variables
 const daysOfWeek = { 0:"Sunday", 1:"Monday", 2:"Tuesday", 3:"Wednesday", 4:"Thursday", 5:"Friday", 6:"Saturday",}
 const conditionDay = { 
-    "Sunny":"sunny.svg", "Partly cloudy":"partly_cloudy_day.svg", "Cloudy": "cloudy.svg",
-    "Patchy rain possible": "rainyCloud.svg", "Moderate rain": "rainyCloud.svg", "Heavy rain": "rainyCloud.svg", "Moderate rain at times": "rainyCloud.svg",
-    "Mist": "foggy.svg", "Fog":"foggy.svg", "Clear": "clearNight.svg"} 
-const conditionNight = { "Clear": "clearNight.svg", "Partly cloudy":"partly_cloudy_night.svg",}
+    "Sunny": sunnySVG, "Partly cloudy": pCloudyDaySVG, "Cloudy": cloudySVG,
+    "Patchy rain possible": rainySVG, "Moderate rain": rainySVG, "Heavy rain": rainySVG, "Moderate rain at times": rainySVG,
+    "Mist": foggySVG, "Fog": foggySVG, "Clear": clearSVG} 
+const conditionNight = { "Clear": clearSVG, "Partly cloudy": pCloudyNightSVG,}
 
 const dailyFore = document.querySelector('#dailyForecast')
 const hourlyFore = document.querySelector('#hourlyForecast')
@@ -73,10 +81,10 @@ function createDailyElements(dayText, highTemp,lowTemp, condition) {
     img.id = "daily-icon"
     //console.log(condition)
     if(conditionDay[condition] != null) {
-        img.src = "/src/images/weather/" + conditionDay[condition]
+        img.src = conditionDay[condition]
     }
     else {
-        img.src = "/src/images/weather/" + conditionDay["Sunny"]
+        img.src = conditionDay["Sunny"]
     }
     
     container.appendChild(day)
@@ -97,7 +105,7 @@ function createHourlyElements(hourText,tempText, condition) {
     temp.textContent = tempText + "°C"
     const img = document.createElement('img')
     img.id = "hourly-icon"
-    img.src = "/src/images/weather/" + conditionDay[condition]
+    img.src = conditionDay[condition]
 
     container.appendChild(hour)
     container.appendChild(temp)
@@ -123,8 +131,7 @@ function assignCurrentBasic(day, time, temp, condition, name, region, country) {
     currCondition.textContent = condition
     location.textContent = name + ', ' + region + ', ' + country
 
-    let result = conditionDay[condition] != null ? conditionDay[condition] : conditionNight[condition]
-    currIcon.src = "/src/images/weather/" + result
+    currIcon.src = conditionDay[condition]
 }
 
 function assignCurrentAdvanced(feels,humid,rain,wind) {
