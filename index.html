@@ -14,19 +14,63 @@
     <script defer src="main.js"></script>
 </head>
     <body>
-        <div class="header">
-            <h1>Weather App</h1>
-        </div>
         <div class="main">
-            <div class="sidebar">
-
+            <div class="current">
+                <div class="basic">
+                    <div id="date">Monday, 10:00 PM</div>
+                    <div id="location">Toronto, Ontario, Canada</div>
+                    <div id="temp-c">28.4°C</div>
+                    <div id="condition">Sunny</div>
+                    <img id="current-icon" src="" alt="">
+                </div>
+                <div class="advanced">
+                    <div class="adv-container">
+                        <img id="adv-icon" src="" alt="">
+                        <div class="data-container">
+                            <div id="title">Feels Like</div>
+                            <div id="feels-temp-c">24°C</div>
+                        </div>
+                    </div>
+                    <div class="adv-container">
+                        <img id="adv-icon" src="" alt="">
+                        <div class="data-container">
+                            <div id="title">Humidity</div>
+                            <div id="humidity">56%</div>
+                        </div>
+                    </div>
+                    <div class="adv-container">
+                        <img id="adv-icon" src="" alt="">
+                        <div class="data-container">
+                            <div id="title">Chance of Rain</div>
+                            <div id="chance-rain">24%</div>
+                        </div>
+                    </div>
+                    <div class="adv-container">
+                        <img id="adv-icon" src="" alt="">
+                        <div class="data-container">
+                            <div id="title">Wind Speed</div>
+                            <div id="wind-speed">27.4 km/h</div>
+                        </div>
+                    </div>
+                    <div class="searchContainer">
+                        <input id="locationSearch" type="text" name="location" value="Toronto">
+                        <button id="searchButton">Search</button>
+                    </div>
+                </div>
             </div>
             <div class="content">
+                <div class="forecast" id="dailyForecast">
+                    <!-- <div class="day-container">
+                        <div id="day-of-week">Saturday</div>
+                        <div id="day-temp">24°C</div>
+                        <div id="day-feels">18°C</div>
+                        <img id="daily-icon" src="/src/images/weather/sunny.png" alt="">
+                    </div> -->
+                </div>
+                <div class="forecast" id="hourlyForecast">
 
+                </div>
             </div>
-        </div>
-        <div class="footer">
-            <p>Copyright 2023 Brian Viveiros</p>
         </div>
     </body>
 </html>
