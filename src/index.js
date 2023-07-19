@@ -135,7 +135,7 @@ function assignCurrentAdvanced(feels,humid,rain,wind) {
 }
 
 function grabCurrentWeatherAPI() {
-    let currentWeather = 'http://api.weatherapi.com/v1/forecast.json?key=' + key + '&q=' + inputValue.value + "&days=7&aqi=no&alerts=no"
+    let currentWeather = 'https://api.weatherapi.com/v1/forecast.json?key=' + key + '&q=' + inputValue.value + "&days=7&aqi=no&alerts=no"
     //console.log(currentWeather)
     fetch(currentWeather,{mode: 'cors'})
         .then(function(response){
